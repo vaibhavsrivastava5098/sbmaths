@@ -8,24 +8,30 @@ import org.springframework.web.bind.annotation.RestController;
 public class MathsController {
 
     @GetMapping("/add/{a}/{b}")
-    public int add(@PathVariable("a") int a, @PathVariable("b") int b)
+    public String add(@PathVariable("a") int a, @PathVariable("b") int b)
     {
-        return a+b;
+        return "The sum is: "+(a+b);
     }
 
     @GetMapping("/subtract/{a}/{b}")
-    public int subtract(@PathVariable("a") int a, @PathVariable("b") int b)
+    public String subtract(@PathVariable("a") int a, @PathVariable("b") int b)
     {
-        return a-b;
+        return "The subtraction is: "+(a-b);
     }
     @GetMapping("/mult/{a}/{b}")
-    public int multiply(@PathVariable("a") int a, @PathVariable("b") int b)
+    public String multiply(@PathVariable("a") int a, @PathVariable("b") int b)
     {
-        return a*b;
+        return "The multiplication is: "+(a*b);
     }
     @GetMapping("/divide/{a}/{b}")
-    public int divide(@PathVariable("a") int a, @PathVariable("b") int b)
+    public String divide(@PathVariable("a") int a, @PathVariable("b") int b)
     {
-        return a/b;
+        return "The division is: "+(a/b);
+    }
+
+    @GetMapping("/remainder/{a}/{b}")
+    public String remainder(@PathVariable("a") int a, @PathVariable("b") int b)
+    {
+        return "The remainder is: "+(a%b);
     }
 }
