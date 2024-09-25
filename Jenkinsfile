@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        JAVA_HOME = 'C:\Program Files\Java\jdk-17\'  // Set the path to your Java 17 installation
-        MAVEN_HOME = 'C:\work\apache-maven-3.9.0\'   // Set the path to your Maven installation
+        JAVA_HOME = 'C:/Program Files/Java/jdk-17/'  // Set the path to your Java 17 installation
+        MAVEN_HOME = 'C:/work/apache-maven-3.9.0/'   // Set the path to your Maven installation
     }
 
     stages {
