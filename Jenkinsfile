@@ -18,7 +18,7 @@ pipeline {
             steps {
                 // Build the project using Maven
                 echo 'Building the Spring Boot application...'
-                sh "${MAVEN_HOME}/bin/mvn clean package"
+                "${MAVEN_HOME}/bin/mvn clean package"
             }
         }
 
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 // Run tests using Maven
                 echo 'Running tests...'
-                sh "${MAVEN_HOME}/bin/mvn test"
+                "${MAVEN_HOME}/bin/mvn test"
             }
         }
 
