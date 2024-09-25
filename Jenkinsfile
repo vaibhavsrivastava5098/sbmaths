@@ -2,44 +2,39 @@ pipeline {
     agent any
 
     environment {
-        // Define any environment variables here
-        // EXAMPLE_VAR = 'value'
+        JAVA_HOME = 'C:\Program Files\Java\jdk-17\'  // Set the path to your Java 17 installation
+        MAVEN_HOME = 'C:\work\apache-maven-3.9.0\'   // Set the path to your Maven installation
     }
 
     stages {
         stage('Checkout') {
             steps {
                 // Checkout the code from the repository
-                git url: 'https://github.com/vaibhavsrivastava5098/sbmaths.git', branch: 'main'
+                git url: 'https://github.com/vaibhavsrivastava5098/sbmaths.git', branch: 'master'
             }
         }
 
         stage('Build') {
             steps {
-                // Add your build commands here
-                // For example, if you're using Maven:
-                // sh 'mvn clean package'
-
-                // Or for a Node.js project:
-                // sh 'npm install'
+                // Build the project using Maven
+                echo 'Building the Spring Boot application...'
+                sh "${MAVEN_HOME}/bin/mvn clean package"
             }
         }
 
         stage('Test') {
             steps {
-                // Add your testing commands here
-                // For example, if you're using Maven:
-                // sh 'mvn test'
-
-                // Or for a Node.js project:
-                // sh 'npm test'
+                // Run tests using Maven
+                echo 'Running tests...'
+                sh "${MAVEN_HOME}/bin/mvn test"
             }
         }
 
         stage('Deploy') {
             steps {
-                // Add your deployment commands here
-                // For example, deploying to a server or creating a Docker image
+                // Deploy the application (customize this part as needed)
+                echo 'Deploying the Spring Boot application...'
+                // You can include deployment commands here, such as:
                 // sh 'deploy_script.sh'
             }
         }
